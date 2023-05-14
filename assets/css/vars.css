@@ -11,6 +11,13 @@
     --color-success: #80b912;
     --color-error: #f05230;
 
+    --leona-warning: #B3001B;
+    --leona-bg-darker: #1e1e1e;
+    --leona-bg: #262626;
+    --leona-fg: #F5F5F5;
+    --leona-detail: #255C99;
+    --leona-detail-light: #7EA3CC;
+
     /* Fonts */
     --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     --font-serif: Georgia, Times, serif;

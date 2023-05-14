@@ -23,6 +23,7 @@
             <a class="gh-head-logo" href="{{@site.url}}">
                 {{#if @site.logo}}
                     <img src="{{@site.logo}}" alt="{{@site.title}}" />
+                    {{@site.title}}
                 {{else}}
                     {{@site.title}}
                 {{/if}}
@@ -64,7 +65,6 @@
             {{navigation type="secondary"}}
         </div>
         <div class="gh-foot-meta">
-            Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
         </div>
     </div>
 </footer>

@@ -25,8 +25,6 @@ production stylesheet in assets/built/screen.css using: npm run dev
 @import "ghost/pagination.css";
 @import "ghost/comments.css";
 
-
-
 /* Main - Your styles here! Edit below
 /* ---------------------------------------------------------- */
 
@@ -35,13 +33,36 @@ html,
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: #ffffff;
+    background: var(--leona-bg);
+    color: var(--leona-fg);
+    font-family: roboto;
 }
 
 .gh-main {
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+
+.gh-header-text-container {
+  /* width: 100%; */
+  width: 80%;
+  display: grid;
+  grid-template-areas:
+    'title   . date'
+    'excerpt . .'
+    'figcreds . length';
+}
+
+.gh-title {
+  grid-area: title;
+}
+
+.gh-header-text-container > figcaption {
+    grid-area: figcreds;
 }
 
 .gh-page {
@@ -50,17 +71,16 @@ html,
 
 .gh-article {
     padding: 8vmin 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 .gh-postfeed {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+    grid-template-columns: 1fr;
     gap: 4.8vmin 4vmin;
     padding: 8vmin 0;
-}
-
-.gh-postfeed > *:first-child {
-    grid-column: 1 / -1;
 }
 
 .gh-container {
@@ -97,15 +117,31 @@ html,
 } */
 
 .gh-card-link {
+    /* Courtesy of https://stackoverflow.com/questions/14387690/how-can-i-show-only-corner-borders */
+    --b: 2px;   /* thickness of the border */
+    --c: var(--leona-detail);   /* color of the border */
+    --w: 20px;  /* width of border */
+    border: var(--b) solid #0000; /* space for the border */
+    --_g: #0000 90deg,var(--c) 0;
+    --_p: var(--w) var(--w) border-box no-repeat;
+    background:
+    conic-gradient(from 90deg  at top    var(--b) left  var(--b),var(--_g)) 0    0    / var(--_p),
+    conic-gradient(from 180deg at top    var(--b) right var(--b),var(--_g)) 100% 0    / var(--_p),
+    conic-gradient(from 0deg   at bottom var(--b) left  var(--b),var(--_g)) 0    100% / var(--_p),
+    conic-gradient(from -90deg at bottom var(--b) right var(--b),var(--_g)) 100% 100% / var(--_p);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 10px;
+    /* border: 1px solid var(--leona-detail); */
+    padding: 1em;
 }
 
 .gh-card-image {
-    width: 100%;
-    max-height: 700px;
+    width: 10em;
+    max-height: 250px;
     object-fit: cover;
-    margin-bottom: 4vmin;
+    height: 10em;
+    filter: brightness(50%);
 }
 
 .gh-card-meta {
@@ -118,26 +154,91 @@ html,
     opacity: 0.8;
 }
 
+.gh-card-title-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gh-card-title {
+    font-size: large;
+}
+
 .gh-card-content {
-    max-width: 720px;
+    width: 100%;
     margin: 0 auto;
-    text-align: center;
     font-size: 1.6rem;
 }
 
 .gh-card-content p {
     margin: 1.2rem 0;
-    padding: 0 6vmin;
 }
 
 .gh-card-content > strong {
     display: inline-block;
     padding: 1px 0;
     font-weight: 500;
-    box-shadow: 0 -1px 0 0 inset currentColor;
+    box-shadow: 0 -1px 0 0 inset var(--leona-detail);
     opacity: 0.5;
 }
 
+.gh-card-read-more {
+    color: var(--leona-fg);
+}
+
+
+.gh-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 85%;
+}
+
+.gh-panel {
+    background-color: var(--leona-bg-darker);
+}
+
+.gh-header-container {
+    margin-bottom: 3em;
+}
+
+/* Hero
+ * ----------------------------------------------------------
+ */
+
+.gh-hero {
+    display: flex;
+    gap: 10px;
+    height: 20em;
+    padding: 1em;
+}
+
+.gh-hero-dog-pic {
+    width: 15em;
+    height: 17em;
+    object-fit: cover;
+
+    --b: 2px;   /* thickness of the border */
+    --c: var(--leona-warning);   /* color of the border */
+    --w: 50px;  /* width of border */
+    border: var(--b) solid #0000; /* space for the border */
+    --_g: #0000 90deg,var(--c) 0;
+    --_p: var(--w) var(--w) border-box no-repeat;
+    background:
+    conic-gradient(from 90deg  at top    var(--b) left  var(--b),var(--_g)) 0    0    / var(--_p),
+    conic-gradient(from 180deg at top    var(--b) right var(--b),var(--_g)) 100% 0    / var(--_p),
+    conic-gradient(from 0deg   at bottom var(--b) left  var(--b),var(--_g)) 0    100% / var(--_p),
+    conic-gradient(from -90deg at bottom var(--b) right var(--b),var(--_g)) 100% 100% / var(--_p);
+    padding: 0.5em;
+}
+
+.gh-hero-title {
+    font-size: xx-large;
+    font-weight: bold;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 /* Page
 /* ---------------------------------------------------------- */
@@ -173,7 +274,22 @@ html,
 
 .gh-header {
     padding: 0 0 8vmin 0;
-    text-align: center;
+    --b: 2px;   /* thickness of the border */
+    --c: var(--leona-detail);   /* color of the border */
+    --w: 20px;  /* width of border */
+
+    border: var(--b) solid #0000; /* space for the border */
+    --_g: #0000 90deg,var(--c) 0;
+    --_p: var(--w) var(--w) border-box no-repeat;
+    background:
+    conic-gradient(from 90deg  at top    var(--b) left  var(--b),var(--_g)) 0    0    / var(--_p),
+    conic-gradient(from 180deg at top    var(--b) right var(--b),var(--_g)) 100% 0    / var(--_p),
+    conic-gradient(from 0deg   at bottom var(--b) left  var(--b),var(--_g)) 0    100% / var(--_p),
+    conic-gradient(from -90deg at bottom var(--b) right var(--b),var(--_g)) 100% 100% / var(--_p);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 1em;
 }
 
 .gh-post-meta {
@@ -183,20 +299,30 @@ html,
     letter-spacing: 0.5px;
     text-transform: uppercase;
     opacity: 0.8;
+    text-align: right;
+}
+
+.gh-post-meta-date {
+    grid-area: date;
+}
+.gh-post-meta-reading-time {
+    grid-area: length;
 }
 
 .gh-excerpt {
+  grid-area: excerpt;
     margin: 1rem 0 0 0;
 }
 
 .gh-feature-image {
-    grid-column: wide-start / wide-end;
-    width: 100%;
-    margin: 8vmin 0 0;
+    max-height: 250px;
+    max-width: 250px;
 }
 
 .gh-feature-image img {
-    margin-inline: auto;
+    object-fit: cover;
+    height: 10em;
+    width: 10em;
 }
 
 .gh-post-footer {
