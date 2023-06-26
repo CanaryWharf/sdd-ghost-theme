@@ -3,27 +3,6 @@
 /* Content grid
 /* ---------------------------------------------------------- */
 
-.gh-canvas {
-    display: grid;
-    grid-template-columns:
-        [full-start]
-        minmax(4vw, auto)
-            [wide-start]
-            minmax(auto, 240px)
-                [main-start]
-                    min(720px, calc(100% - 8vw))
-                [main-end]
-            minmax(auto, 240px)
-            [wide-end]
-        minmax(4vw, auto)
-        [full-end]
-    ;
-}
-
-.gh-canvas > * {
-    grid-column: main-start / main-end;
-}
-
 .kg-width-wide {
     grid-column: wide-start / wide-end;
 }
@@ -39,6 +18,11 @@
 
 /* Content & Typography
 /* ---------------------------------------------------------- */
+
+.gh-content {
+    padding-left: 2em;
+    padding-right: 2em;
+}
 
 .gh-content > * + * {
     margin-top: 4vmin;
@@ -136,19 +120,19 @@ figcaption strong {
 .gh-canvas :not(pre) code {
     vertical-align: middle;
     padding: 0.15em 0.4em 0.15em;
-    border: #e1eaef 1px solid;
+    border: var(--leona-bg-dark) 1px solid;
     font-weight: 400 !important;
     font-size: 0.9em;
     line-height: 1em;
-    color: #dc0050;
-    background: #f0f6f9;
+    color: var(--leona-warning);
+    background: var(--leona-bg-darker);
     border-radius: 0.25em;
 }
 
 .gh-canvas > pre {
     overflow: scroll;
     padding: 16px 20px;
-    background: rgba(255,255,255,0.8);
+    background: var(--leona-bg-darker);
     border-radius: 5px;
     box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
 }
