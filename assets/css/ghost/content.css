@@ -24,6 +24,14 @@
     padding-right: 2em;
 }
 
+
+@media (max-width: 767px) {
+    .gh-content {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 .gh-content > * + * {
     margin-top: 4vmin;
 }

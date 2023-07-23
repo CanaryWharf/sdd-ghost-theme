@@ -69,6 +69,16 @@ html,
     padding: 0 4vmin;
 }
 
+@media (max-width: 767px) {
+    .gh-page {
+        padding: 0;
+    }
+    .gh-main {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
 .gh-article {
     padding: 8vmin 0;
     display: flex;
